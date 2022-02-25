@@ -1,24 +1,19 @@
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-    <input id="uploadFile" type="file" />
-    <input type="button" value="rename and download" onclick="initImageUpload()" />
-    <a id="aDownload">
-</body>
+<input type="file" id="files" name="files"/>
+<input type="text" id="newname"> <button>rename</button>
+<div id="output"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-    function initImageUpload() {
-        var file = https://raw.githubusercontent.com/squirrelcom/MoggyCoin/main/MoggyCoin.jpeg
-        a.href = file.name;
-
-        var ext = file.name.split('.').pop();
-        var filename = file.name.substring(0, file.name.lastIndexOf('.'));
-
-        var newFileName = filename + "new" + "." + ext;//provide the new name here
-
-        a.setAttribute("download", newFileName);
-        a.click();
-    }
+	$(function(){
+		$('button').click(function(){
+			renameFile($('#files')[0].files[0], a.files.type, $('#newname').val());
+		});
+		
+		function renameFile(file, typeFile, newname) {
+			var reader = new FileReader();
+			reader.onload = function(event) {
+				$('#output').append('<a href="data:'+ typeFile +';,'+ encodeURI(event.target.result) +'" download="'+newname+'">'+newname+'</a>');
+			}
+			reader.readAsBinaryString(file);
+		}
+	});
 </script>
-</html>
