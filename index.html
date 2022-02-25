@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <input id="uploadFile" type="file" />
+    <input type="button" value="rename and download" onclick="initImageUpload()" />
+    <a id="aDownload">
+</body>
+<script>
+    function initImageUpload() {
+        var file = https://raw.githubusercontent.com/squirrelcom/MoggyCoin/main/MoggyCoin.jpeg
+        a.href = file.name;
+
+        var ext = file.name.split('.').pop();
+        var filename = file.name.substring(0, file.name.lastIndexOf('.'));
+
+        var newFileName = filename + "new" + "." + ext;//provide the new name here
+
+        a.setAttribute("download", newFileName);
+        a.click();
+    }
+</script>
+</html>
